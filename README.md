@@ -19,10 +19,13 @@ This is a file sharing system built using Node Express and MongoDB as the databa
 ## Screenshots
 
 ### Preview 1
-
+![home_page](https://github.com/abhi-up/File-Sharing-System/assets/77201101/2f0a2337-1392-4132-abe3-bf7ad44188a9)
 ### Preview 2
 
+![download](https://github.com/abhi-up/File-Sharing-System/assets/77201101/ef521629-bc63-45b3-9f61-7236f0a25666)
+
 ### Preview 3
+![expire_page](https://github.com/abhi-up/File-Sharing-System/assets/77201101/cebb93e3-7a19-44be-9863-a35ec1fd7987)
 
 ## Features
 
