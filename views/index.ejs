@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <img src="../images/logo.png" alt="Logo" class="logo-image" />
+    </div>
+
+    <div class="header-container">
+      <h2 class="header-title">Simplify your sharing, empower your work.</h2>
+    </div>
+    <!-- File Link Section -->
+    <% if (locals.fileLink != null) { %>
+    <div class="file-link-container">
+      <div class="file-link-content">
+        <div class="file-link-text">
+          Your file is uploaded. Link:
+          <a href="<%= locals.fileLink %>" class="file-link-url"
+            ><%= locals.fileLink %></a
+          >
+        </div>
+        <br />
+
+        <button id="removeLinkBtn" class="file-link-button">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="file-link-time file-link-container">
+      <h3>
+        The link will expire after:&nbsp
+
+        <sapn><%=locals.expiryDate%> &nbsp</sapn>
+        <sapn><%=locals.expiryTime%> &nbsp</sapn>
+      </h3>
+      <button id="removetime" class="file-link-button">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <% } %>
+
+    <div class="form-container">
+      <!-- Form Section -->
+      <form
+        action="/upload"
+        method="post"
+        class="form-content"
+        enctype="multipart/form-data"
+      >
+        <div class="form-grid">
+          <div>
+            <label for="file" class="form-label">File:</label>
+            <input
+              type="file"
+              id="file"
+              name="file"
+              required
+              class="form-input"
+            />
+          </div>
+          <div>
+            <label for="password" class="form-label">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+            />
+          </div>
+        </div>
+
+        <!-- Time input -->
+
+        <div>
+          <label for="expiresDate" class="form-label">Expiry Date:</label>
+          <input
+            type="date"
+            id="expiresDate"
+            name="expiryDate"
+            class="form-input"
+          />
+        </div>
+        <div>
+          <label for="expiresTime" class="form-label">Expiry Time:</label>
+          <input
+            type="time"
+            id="expiresTime"
+            name="expiryTime"
+            class="form-input"
+          />
+        </div>
+
+        <button type="submit" class="form-button">Share</button>
+      </form>
+
+      <!-- Image Section -->
+      <div class="image-container">
+        <img src="../images/hero.png" alt="hero" class="hero-image" />
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("removeLinkBtn")
+        .addEventListener("click", function () {
+          var fileLinkSection = document.querySelector(".file-link-container")
+          if (fileLinkSection) {
+            fileLinkSection.style.display = "none"
+          }
+        })
+
+      document
+        .getElementById("removetime")
+        .addEventListener("click", function () {
+          var fileTimeSection = document.querySelector(".file-link-time")
+          if (fileTimeSection) {
+            fileTimeSection.style.display = "none"
+          }
+        })
+    </script>
+  </body>
+</html>
